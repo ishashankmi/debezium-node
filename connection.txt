@@ -1,0 +1,7 @@
+#to post
+curl -X POST -H "Content-Type: application/json" --data @postgres http://localhost:8083/connectors
+
+
+#to delete
+curl -X DELETE http://localhost:8083/connectors/postgres-connector
+

@@ -1,0 +1,26 @@
+{
+  "name": "postgres-messages-connector",
+  "config": {
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "tasks.max": "1",
+      "database.hostname": "deb-test_postgres_1",
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "mypassword",
+      "database.dbname": "messages",
+      "database.server.name": "postgres-messages-server",
+      "table.include.list": "public.*",
+      "plugin.name": "pgoutput",
+      "publication.name": "dbz_publication_messages",
+      "slot.name": "dbz_slot_messages",
+      
+      "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "key.converter.schemas.enable": "false",
+      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "value.converter.schemas.enable": "false",
+      
+      "heartbeat.interval.ms": "0",
+      "topic.prefix": "postgres-messages",
+      "skipped.operations": "c"
+  }
+}
